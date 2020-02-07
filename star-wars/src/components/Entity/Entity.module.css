@@ -1,0 +1,28 @@
+.title {
+  text-transform: capitalize;
+}
+
+.item {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  width: 600px;
+}
+
+.name,
+.descr {
+  display: inline-block;
+  /* width: 100px; */
+  text-align: left;
+  text-transform: capitalize;
+  font-size: 1em;
+}
+
+.name {
+  width: 150px;
+}
+
+.descr {
+  padding-left: 20px;
+  width: 450px;
+}
