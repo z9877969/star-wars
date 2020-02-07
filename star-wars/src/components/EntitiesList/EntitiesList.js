@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, withRouter } from "react-router-dom";
+import shortid from "shortid";
 import { getCategoryFromUrl } from "../../services/helpers";
 import css from "./EntitiesList.module.css";
 
@@ -20,7 +21,7 @@ const EntitiesList = props => {
             return 0;
           })
           .map(entityObj => (
-            <li className={css.list} key={entityObj[`${name}`]}>
+            <li className={css.list} key={shortid.generate()}>
               {entityObj && (
                 <NavLink
                   to={{

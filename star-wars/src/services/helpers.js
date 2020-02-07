@@ -22,6 +22,12 @@ export const getEntitiesArrFromUrl = (arrEntitiesUrl, stateFunc) => {
   );
 };
 
+export const getDataFromQuery = location => {
+  const q = qs.parse(location.search);
+
+  return q;
+};
+
 // args is arr [category, id] or [category]
 export const getRoute = args =>
   [...args].reduce((acc, el) => acc + `/${el}`, "").trim();
