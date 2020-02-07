@@ -1,8 +1,9 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import css from "./Search.module.css";
 
 const options = {
-  categories: ["films"]
+  categories: ["films", "starships", "planets"]
 };
 
 export default withRouter(
@@ -25,11 +26,23 @@ export default withRouter(
         });
     };
 
+    handlerGoBackHome = () => {
+      const { history } = this.props;
+      history.push("/films");
+    };
+
     render() {
       return (
         <div>
+          <button
+            type="button"
+            onClick={this.handlerGoBackHome}
+            className={css.button}
+          >
+            Home
+          </button>
           <form onSubmit={this.handlerSubmit}>
-            <input type="input" placeholder="Input film..." />
+            <input type="input" placeholder="Search..." />
             <button type="submit">Search</button>
           </form>
         </div>

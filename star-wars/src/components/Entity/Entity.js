@@ -26,7 +26,10 @@ const Entity = props => {
                 key !== "name" &&
                 key !== "films" &&
                 key !== "url" &&
-                value !== "unknown"
+                key !== "created" &&
+                key !== "edited" &&
+                value !== "unknown" &&
+                !Array.isArray(value)
               );
             })
             .map(el => {

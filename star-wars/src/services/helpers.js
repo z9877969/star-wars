@@ -31,3 +31,22 @@ export const getDataFromQuery = location => {
 // args is arr [category, id] or [category]
 export const getRoute = args =>
   [...args].reduce((acc, el) => acc + `/${el}`, "").trim();
+
+//helper for sortEntitiesArr()
+export const getNameKey = objSorting => {
+  return Object.keys(objSorting).find(key => key === "name") === "name"
+    ? "name"
+    : "title";
+};
+
+export const sortEntitiesArr = (entitiesArr, nameKey) => {
+  return entitiesArr.sort((a, b) => {
+    if (a[`${getNameKey(a)}`] > b[`${getNameKey(b)}`]) {
+      return 1;
+    }
+    if (a[`${getNameKey(a)}`] < b[`${getNameKey(b)}`]) {
+      return -1;
+    }
+    return 0;
+  });
+};

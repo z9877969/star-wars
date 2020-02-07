@@ -16,17 +16,6 @@ const SearchPage = props => {
       : [qObj.categories];
   const query = qObj.q;
 
-  // useEffect(() => {
-  //   [...categories].map(category =>
-  //     fetchEntitiesByQuery(category, query).then(res => {
-  //       const arr = res;
-  //       setQueryEnts(prev => [...prev, ...arr]);
-  //       console.log("queryEnts", queryEnts);
-  //       console.log("res", res);
-  //     })
-  //   );
-  // }, []);
-
   useEffect(() => {
     setQueryEnts([]);
 
@@ -34,7 +23,6 @@ const SearchPage = props => {
       fetchEntitiesByQuery(category, query).then(res => {
         const arr = res;
         setQueryEnts(prev => [...prev, ...arr]);
-        console.log("res", res);
       })
     );
   }, [query]);
@@ -44,7 +32,7 @@ const SearchPage = props => {
       <h3>
         <p>Searched next:</p>
       </h3>
-      <EntitiesList entitiesArr={queryEnts} name="title" />
+      <EntitiesList entitiesArr={queryEnts} />
     </div>
   );
 };
